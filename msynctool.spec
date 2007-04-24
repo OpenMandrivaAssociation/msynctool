@@ -1,15 +1,16 @@
 Name:           msynctool
-BuildRequires:  libopensync-devel
-URL:            http://www.opensync.org
 Version:        0.22
 Release:        %mkrel 1
 Summary:        CLI for synchronization with OpenSync
 License:        GPL
 Group:          Networking/Other
-Source:         msynctool-%{version}.tar.bz2
-BuildRoot:      %{_tmppath}/%{name}-%{version}-build
+URL:            http://www.opensync.org
+Source:         %{name}-%{version}.tar.bz2
+Patch0:         %{name}-0.22-cflags.patch
 Requires:       libopensync >= 0.20
-Obsoletes:	multisync-cli
+Obsoletes:	    multisync-cli
+BuildRequires:  libopensync-devel
+BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Command line version of MultiSync for the OpenSync-package. To allow
@@ -21,10 +22,11 @@ phase.
 
 %prep
 %setup -q
+%patch -p 0
 
 %build
 autoreconf -if
-%configure
+%configure2_5x
 %make
 
 %install
@@ -34,11 +36,12 @@ autoreconf -if
 rm -rf %{buildroot}
 
 %files
-%defattr(-, root, root)
+%defattr(-,root,root)
+%doc AUTHORS COPYING INSTALL ChangeLog NEWS README
 %{_bindir}/msynctool
 %{_bindir}/convcard
+%{_bindir}/convtest
 %{_mandir}/man1/convcard.1*
 %{_mandir}/man1/msynctool.1*
-%doc AUTHORS COPYING INSTALL ChangeLog NEWS README
 
 
