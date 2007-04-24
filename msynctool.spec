@@ -1,8 +1,8 @@
 Name:           msynctool
 BuildRequires:  libopensync-devel
 URL:            http://www.opensync.org
-Version:        0.20
-Release:        %mkrel 2
+Version:        0.22
+Release:        %mkrel 1
 Summary:        CLI for synchronization with OpenSync
 License:        GPL
 Group:          Networking/Other
@@ -31,7 +31,7 @@ autoreconf -if
 %makeinstall_std
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-, root, root)
