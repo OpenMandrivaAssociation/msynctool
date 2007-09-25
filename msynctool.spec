@@ -1,6 +1,6 @@
 Name:           msynctool
 Version:        0.22
-Release:        %mkrel 2
+Release:        %mkrel 3
 Summary:        CLI for synchronization with OpenSync
 License:        GPL
 Group:          Networking/Other
@@ -9,6 +9,7 @@ Source:         %{name}-%{version}.tar.bz2
 Patch0:         %{name}-0.22-cflags.patch
 Obsoletes:	    multisync-cli
 BuildRequires:  libopensync-devel
+Requires:		multisync
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
