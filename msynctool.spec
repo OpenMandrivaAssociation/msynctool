@@ -1,14 +1,15 @@
 Name:           msynctool
-Version:        0.22
-Release:        %mkrel 4
+Version:        0.33
+Release:        %mkrel 1
 Summary:        CLI for synchronization with OpenSync
 License:        GPL
 Group:          Networking/Other
 URL:            http://www.opensync.org
-Source:         %{name}-%{version}.tar.bz2
+Source:         http://www.opensync.org/download/releases/%version/%{name}-%{version}.tar.bz2
 Obsoletes:	    multisync-cli
 Obsoletes:	    multisync
-BuildRequires:  libopensync-devel
+BuildRequires:  libopensync-devel >= %version
+BuildRequires:	scons
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
@@ -23,11 +24,10 @@ phase.
 %setup -q
 
 %build
-%configure2_5x
-%make
+scons prefix=%{_prefix}
 
 %install
-%makeinstall_std
+scons install DESTDIR=%{buildroot}
 
 %clean
 rm -rf %{buildroot}
@@ -35,8 +35,5 @@ rm -rf %{buildroot}
 %files
 %defattr(-,root,root)
 %doc AUTHORS COPYING INSTALL ChangeLog NEWS README
-%{_bindir}/msynctool
-%{_bindir}/convcard
-%{_bindir}/convtest
-%{_mandir}/man1/convcard.1*
-%{_mandir}/man1/msynctool.1*
+%{_bindir}/*
+%{_mandir}/man1/*
