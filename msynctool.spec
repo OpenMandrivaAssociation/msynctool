@@ -34,6 +34,5 @@ rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
-%doc AUTHORS COPYING INSTALL ChangeLog NEWS README
+%doc AUTHORS CODING COPYING README
 %{_bindir}/*
-%{_mandir}/man1/*
