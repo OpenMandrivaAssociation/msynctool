@@ -1,15 +1,15 @@
 Name:           msynctool
-Version:        0.33
+Version:        0.34
 Release:        %mkrel 1
 Summary:        CLI for synchronization with OpenSync
-License:        GPL
+License:        GPLv2+
 Group:          Networking/Other
 URL:            http://www.opensync.org
 Source:         http://www.opensync.org/download/releases/%version/%{name}-%{version}.tar.bz2
 Obsoletes:	    multisync-cli
 Obsoletes:	    multisync
 BuildRequires:  libopensync-devel >= %version
-BuildRequires:	scons
+BuildRequires:	cmake
 BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
@@ -24,10 +24,13 @@ phase.
 %setup -q
 
 %build
-scons prefix=%{_prefix}
+%cmake
+%make
 
 %install
-scons install DESTDIR=%{buildroot}
+cd build
+%makeinstall_std
+cd -
 
 %clean
 rm -rf %{buildroot}
