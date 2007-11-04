@@ -24,6 +24,7 @@ phase.
 %setup -q
 
 %build
+rm -fr build
 %cmake
 %make
 
