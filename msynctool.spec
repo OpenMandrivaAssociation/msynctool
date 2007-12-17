@@ -10,7 +10,6 @@ Obsoletes:	    multisync-cli
 Obsoletes:	    multisync
 BuildRequires:  libopensync-devel >= %version
 BuildRequires:	cmake
-BuildRoot:      %{_tmppath}/%{name}-%{version}
 
 %description
 Command line version of MultiSync for the OpenSync-package. To allow
