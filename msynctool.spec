@@ -16,9 +16,9 @@ BuildRoot:      %{_tmppath}/%{name}-%{version}
 Command line version of MultiSync for the OpenSync-package. To allow
 synchronization on machines which lack a X server. It relies on the OpenSync
 framework to do the actual synchronization. You need to install the libopensync
-package and the plugins for it, too. This package is independent from the various
-multisync-* packages which will be obsoleted once OpenSync has left the beta
-phase.
+package and the plugins for it, too. This package is independent from the
+various multisync-* packages which will be obsoleted once OpenSync has left the
+beta phase.
 
 %prep
 %setup -q
