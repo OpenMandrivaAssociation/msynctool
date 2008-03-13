@@ -1,7 +1,7 @@
 Name:		msynctool
 Version:	0.22
 Epoch:		1
-Release:	%{mkrel 5}
+Release:	%{mkrel 6}
 Summary:	CLI for synchronization with OpenSync
 License:	GPLv2+
 Group:		Networking/Other
