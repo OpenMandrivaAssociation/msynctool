@@ -9,7 +9,7 @@ URL:		http://www.opensync.org
 Source:		%{name}-%{version}.tar.bz2
 Obsoletes:	multisync-cli
 Obsoletes:	multisync
-BuildRequires:	libopensync-devel = %{epoch}:%{version}
+BuildRequires:	libopensync-devel < 0.30
 Requires:	libopensync >= %{epoch}:%{version}
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
