@@ -1,13 +1,12 @@
 Name:		msynctool
 Version:	0.22
 Epoch:		1
-Release:	%{mkrel 7}
+Release:	%mkrel 8
 Summary:	CLI for synchronization with OpenSync
 License:	GPLv2+
 Group:		Networking/Other
 URL:		http://www.opensync.org
 Source0:	%{name}-%{version}.tar.bz2
-Source1:	bash-completion
 Obsoletes:	multisync-cli
 Obsoletes:	multisync
 BuildRequires:	libopensync-devel < 0.30
@@ -29,17 +28,12 @@ OpenSync framework to do the actual synchronization.
 %install
 %makeinstall_std
 
-# bash completion
-install -d -m 755 %{buildroot}%{_sysconfdir}/bash_completion.d
-install -m 644 %{SOURCE1} %{buildroot}%{_sysconfdir}/bash_completion.d/%{name}
-
 %clean
 rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
 %doc AUTHORS ChangeLog NEWS README
-%{_sysconfdir}/bash_completion.d/%{name}
 %{_bindir}/msynctool
 %{_bindir}/convcard
 %{_bindir}/convtest
