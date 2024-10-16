@@ -5,7 +5,7 @@ Release:	11
 Summary:	CLI for synchronization with OpenSync
 License:	GPLv2+
 Group:		Networking/Other
-URL:		http://www.opensync.org
+URL:		https://www.opensync.org
 Source0:	%{name}-%{version}.tar.bz2
 Obsoletes:	multisync-cli
 Obsoletes:	multisync
